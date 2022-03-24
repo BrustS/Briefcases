@@ -8,10 +8,9 @@ import by.example.briefcases.data.entities.Questions
 
 interface Repository {
     fun getAllBriefcases(): LiveData<List<Briefcase>>
-    suspend fun getAnswerByBriefcase(): List<AnswerQuestion>
     suspend fun addNewBriefcase(briefcase: Briefcase)
     fun getQuestionByBriefcase(briefcaseID: String): LiveData<List<AnswerQuestion>>
     suspend fun getCategories(): List<Questionnaires>
     suspend fun getQuestions(qid: Int) : List<Questions>
-    suspend fun addAnswerToLocal(answerQuestion: AnswerQuestion)
+    suspend fun addQuestionToLocal(answerQuestion: AnswerQuestion)
 }

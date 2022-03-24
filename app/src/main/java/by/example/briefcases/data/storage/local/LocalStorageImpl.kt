@@ -11,10 +11,6 @@ class LocalStorageImpl @Inject constructor(private val localDAO: LocalDAO) : Loc
         return localDAO.getAllBriefcases()
     }
 
-    override suspend fun getAnswerByBriefcase(): List<AnswerQuestion> {
-        TODO("Not yet implemented")
-    }
-
     override suspend fun addNewBriefcase(briefcase: Briefcase) {
         localDAO.addNewBriefcase(briefcase)
     }
@@ -23,7 +19,7 @@ class LocalStorageImpl @Inject constructor(private val localDAO: LocalDAO) : Loc
         return localDAO.getQuestionsByBriefcase(briefcaseID = briefcaseID)
     }
 
-    override  suspend fun addQuestionByBriefcase(answerQuestion: AnswerQuestion) {
+    override suspend fun addQuestionByBriefcase(answerQuestion: AnswerQuestion) {
         localDAO.addQuestions(answerQuestion)
     }
 }

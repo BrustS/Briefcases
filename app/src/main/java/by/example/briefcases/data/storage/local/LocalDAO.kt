@@ -19,7 +19,7 @@ interface LocalDAO {
     @Query("SELECT * FROM questions WHERE questions.briefcase_id = :briefcaseID")
     fun getQuestionsByBriefcase(briefcaseID: String) : LiveData<List<AnswerQuestion>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(entity = AnswerQuestion::class, onConflict = OnConflictStrategy.REPLACE)
     suspend fun addQuestions(answerQuestion: AnswerQuestion)
 
 }

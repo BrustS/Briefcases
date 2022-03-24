@@ -13,19 +13,15 @@ import javax.inject.Inject
 class RepositoryImpl @Inject constructor(private val localStorage: LocalStorage,
                                          private val remoteStorage: RemoteStorage
 ): Repository {
-    override  fun getAllBriefcases(): LiveData<List<Briefcase>> {
-        return localStorage.getAllBriefcases()
-    }
-
-    override suspend fun getAnswerByBriefcase(): List<AnswerQuestion> {
-        return localStorage.getAnswerByBriefcase()
+    override fun getAllBriefcases(): LiveData<List<Briefcase>> {
+       return localStorage.getAllBriefcases()
     }
 
     override suspend fun addNewBriefcase(briefcase: Briefcase) {
-        localStorage.addNewBriefcase(briefcase)
+       localStorage.addNewBriefcase(briefcase)
     }
 
-    override  fun getQuestionByBriefcase(briefcaseID: String): LiveData<List<AnswerQuestion>> {
+    override fun getQuestionByBriefcase(briefcaseID: String): LiveData<List<AnswerQuestion>> {
         return localStorage.getQuestionByBriefcase(briefcaseID)
     }
 
@@ -33,11 +29,12 @@ class RepositoryImpl @Inject constructor(private val localStorage: LocalStorage,
         return remoteStorage.getCategories()
     }
 
-    override suspend fun getQuestions(qid:Int): List<Questions> {
-        return remoteStorage.getQuestions(qid)
+    override suspend fun getQuestions(qid: Int): List<Questions> {
+       return remoteStorage.getQuestions(qid)
     }
 
-    override suspend fun addAnswerToLocal(answerQuestion: AnswerQuestion) {
-        localStorage.addQuestionByBriefcase(answerQuestion)
+    override suspend fun addQuestionToLocal(answerQuestion: AnswerQuestion) {
+       localStorage.addQuestionByBriefcase(answerQuestion)
     }
+
 }

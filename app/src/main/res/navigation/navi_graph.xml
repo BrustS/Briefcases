@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_briefcasesFragment_to_vesselFragment"
             app:destination="@id/vesselFragment" />
+        <action
+            android:id="@+id/action_briefcasesFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
     </fragment>
     <fragment
         android:id="@+id/vesselFragment"
@@ -70,4 +73,8 @@
         android:name="by.example.briefcases.presentation.ui.answers.AnswersFragment"
         android:label="fragment_answers"
         tools:layout="@layout/fragment_answers" />
+    <fragment
+        android:id="@+id/questionFragment"
+        android:name="by.example.briefcases.presentation.ui.questions.QuestionFragment"
+        android:label="QuestionFragment" />
 </navigation>

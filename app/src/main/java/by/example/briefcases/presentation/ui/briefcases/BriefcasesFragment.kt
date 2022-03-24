@@ -13,6 +13,7 @@ import by.example.briefcases.data.entities.Briefcase
 import by.example.briefcases.databinding.FragmentBriefcasesBinding
 import by.example.briefcases.presentation.ui.BaseFragment
 import by.example.briefcases.presentation.ui.onItemClickItemListener
+import by.example.briefcases.utils.Variables
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -31,13 +32,13 @@ class BriefcasesFragment : BaseFragment<FragmentBriefcasesBinding>() {
             layoutManager = GridLayoutManager(requireContext(), 2)
         }
 
-//        adapterBriefcase.setOnItemClickListener(object : onItemClickItemListener {
-//            override fun onItemClick(absoluteAdapterPosition: Int) {
-//
-//                Navigation.findNavController(binding.root).navigate(directions)
-//            }
-//
-//        })
+        adapterBriefcase.setOnItemClickListener(object : onItemClickItemListener {
+            override fun onItemClick(absoluteAdapterPosition: Int) {
+                Variables.briefcaseId = listBriefcases[absoluteAdapterPosition].dateOfCreation
+                Navigation.findNavController(binding.root)
+                    .navigate(R.id.action_briefcasesFragment_to_questionFragment)
+            }
+        })
 
         viewModel.briefcases.observe(viewLifecycleOwner) {
             listBriefcases = it

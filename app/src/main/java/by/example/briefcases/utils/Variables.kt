@@ -8,5 +8,6 @@ class Variables {
         var inspectorSource: String = ""
         var inspectorName: String = ""
         var category: String = ""
+        var briefcaseId: String = ""
     }
 }

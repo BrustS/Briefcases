@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import by.example.briefcases.data.entities.Briefcase
 import by.example.briefcases.databinding.BriefcaseItemBinding
 import by.example.briefcases.presentation.ui.onItemClickItemListener
+
 class BriefcaseAdapter : RecyclerView.Adapter<BriefcaseViewHolder>() {
 
     private var briefcases = listOf<Briefcase>()
@@ -14,7 +15,7 @@ class BriefcaseAdapter : RecyclerView.Adapter<BriefcaseViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BriefcaseViewHolder {
         val binding =
             BriefcaseItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return BriefcaseViewHolder(binding)
+        return BriefcaseViewHolder(binding, clickListener)
     }
 
     override fun onBindViewHolder(holder: BriefcaseViewHolder, position: Int) {
@@ -29,20 +30,28 @@ class BriefcaseAdapter : RecyclerView.Adapter<BriefcaseViewHolder>() {
         briefcases = list
     }
 
-
     fun setOnItemClickListener(listener: onItemClickItemListener) {
         clickListener = listener
     }
 }
 
-class BriefcaseViewHolder(private val binding: BriefcaseItemBinding) :
+class BriefcaseViewHolder(private val binding: BriefcaseItemBinding,
+listener: onItemClickItemListener) :
     RecyclerView.ViewHolder(binding.root) {
+
+    init {
+        itemView.setOnClickListener {
+            listener.onItemClick(absoluteAdapterPosition)
+        }
+    }
+
     fun bind(briefcase: Briefcase) {
         binding.apply {
             vesselTextView.text = briefcase.vessel
             inspectionSourceTextView.text = briefcase.inspectionSource
             inspectionTypeTextView.text = briefcase.inspectionType
             portTextView.text = briefcase.port
+            questionCategoryTextView.text = briefcase.category
 
         }
     }

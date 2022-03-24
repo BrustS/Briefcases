@@ -6,8 +6,7 @@ import by.example.briefcases.data.entities.Briefcase
 
 interface LocalStorage {
     fun getAllBriefcases(): LiveData<List<Briefcase>>
-    suspend fun getAnswerByBriefcase(): List<AnswerQuestion>
     suspend fun addNewBriefcase(briefcase: Briefcase)
     fun getQuestionByBriefcase(briefcaseID: String): LiveData<List<AnswerQuestion>>
-    suspend fun addQuestionByBriefcase(answerQuestion: AnswerQuestion)
+     suspend fun addQuestionByBriefcase(answerQuestion: AnswerQuestion)
 }
