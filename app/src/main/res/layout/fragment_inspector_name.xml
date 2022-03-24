@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fieldInspectorName"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="by.example.testApp.presentation.ui.inspector_name.InspectorNameFragment">
+
+    <EditText
+        android:id="@+id/inspectorNameEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/inspector_name_dimen"
+        android:layout_marginTop="@dimen/inspector_name_top_edit_text_dimen"
+        android:layout_marginEnd="@dimen/inspector_name_dimen"
+        android:ems="10"
+        android:hint="Inspector Name"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/inspectorNameContinueButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/inspector_name_dimen"
+        android:layout_marginEnd="@dimen/inspector_name_dimen"
+        android:layout_marginBottom="@dimen/inspector_name_dimen"
+        android:text="@string/continue_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

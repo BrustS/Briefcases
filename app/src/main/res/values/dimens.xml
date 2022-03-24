@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="inspector_name_dimen">48dp</dimen>
+    <dimen name="inspector_name_top_edit_text_dimen">64dp</dimen>
+</resources>
